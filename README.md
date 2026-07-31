@@ -41,6 +41,8 @@ operable program or batch file.
 
 
 
-powershell -NoProfile -Command "Get-CimInstance Win32_PnPEntity | ? {$_.Name -match 'COM\d+' -or $_.PNPClass -eq 'Ports'} | Select Name,Status | Format-Table -Auto"
+powershell -NoProfile -Command "[System.IO.Ports.SerialPort]::GetPortNames()"
 
-powershell -NoProfile -Command "Get-PnpDevice -PresentOnly | ? {$_.Status -ne 'OK'} | Select Status,Class,FriendlyName,InstanceId | Format-Table -Auto"
+powershell -NoProfile -Command "Get-PnpDevice -PresentOnly | ? {$_.InstanceId -like 'USB*'} | Select FriendlyName,Status | Sort FriendlyName | Format-Table -Auto"
+
+devmgmt.msc
