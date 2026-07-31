@@ -31,3 +31,15 @@ if ($vc) {
 C:\Users\BUH local-admin>$net = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" -ErrorAction SilentlyContinue
 '$net' is not recognized as an internal or external command,
 operable program or batch file.
+
+
+
+
+
+
+
+
+
+
+
+winget install --id Microsoft.VCRedist.2015+.x64 -e --accept-source-agreements --accept-package-agreements
