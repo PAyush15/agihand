@@ -26,3 +26,8 @@ if ($vc) {
 } else {
     Write-Host "VC++ 2015-2022 x64  : MISSING" -ForegroundColor Red
 }
+
+
+C:\Users\BUH local-admin>$net = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" -ErrorAction SilentlyContinue
+'$net' is not recognized as an internal or external command,
+operable program or batch file.
