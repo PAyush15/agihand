@@ -17,3 +17,8 @@ powershell -NoProfile -Command "Get-Content \"$env:OHB\kerneldlls\dll_cfg.ini\""
 powershell -NoProfile -Command "$d=Get-PnpDevice -PresentOnly | ? {$_.FriendlyName -match 'CANFD|CAN|analys'} | Select -First 1; Get-PnpDeviceProperty -InstanceId $d.InstanceId -KeyName DEVPKEY_Device_DriverProvider,DEVPKEY_Device_DriverInfPath | Select KeyName,Data | Format-Table -Auto"
 
 powershell -NoProfile -Command "Get-PnpDevice -PresentOnly | ? {$_.FriendlyName -match 'CANFD|analys'} | ForEach-Object { Disable-PnpDevice -InstanceId $_.InstanceId -Confirm:$false; Start-Sleep 2; Enable-PnpDevice -InstanceId $_.InstanceId -Confirm:$false }"
+
+
+
+
+C:\Windows\System32>powershell -NoProfile -Command "Get-Content "$env:OHB\kerneldlls\dll_cfg.ini""                      Get-Content : Cannot find path 'C:\kerneldlls\dll_cfg.ini' because it does not exist.                                   At line:1 char:1                                                                                                        + Get-Content $env:OHB\kerneldlls\dll_cfg.ini                                                                           + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                               + CategoryInfo          : ObjectNotFound: (C:\kerneldlls\dll_cfg.ini:String) [Get-Content], ItemNotFoundException       + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand       
