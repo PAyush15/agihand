@@ -41,8 +41,9 @@ operable program or batch file.
 
 
 
+winget install --id Microsoft.VCRedist.2013.x64 -e --accept-source-agreements --accept-package-agreements
 
-C:\Users\BUH local-admin>winget install --id Microsoft.VCRedist.2015+.x64 -e --accept-source-agreements --accept-package-agreements
-Found an existing package already installed. Trying to upgrade the installed package...
-No available upgrade found.
-No newer package versions are available from the configured sources.
+
+powershell -NoProfile -Command "Invoke-WebRequest 'https://aka.ms/highdpimfc2013x64enu' -OutFile \"$env:TEMP\vcredist_2013_x64.exe\"; Start-Process \"$env:TEMP\vcredist_2013_x64.exe\" -ArgumentList '/install','/quiet','/norestart' -Verb RunAs -Wait; Write-Host 'Done.'"
+
+winget install --id Microsoft.VCRedist.2013.x86 -e --accept-source-agreements --accept-package-agreements
