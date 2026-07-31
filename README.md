@@ -41,9 +41,6 @@ operable program or batch file.
 
 
 
-winget install --id Microsoft.VCRedist.2013.x64 -e --accept-source-agreements --accept-package-agreements
+powershell -NoProfile -Command "Get-CimInstance Win32_PnPEntity | ? {$_.Name -match 'COM\d+' -or $_.PNPClass -eq 'Ports'} | Select Name,Status | Format-Table -Auto"
 
-
-powershell -NoProfile -Command "Invoke-WebRequest 'https://aka.ms/highdpimfc2013x64enu' -OutFile \"$env:TEMP\vcredist_2013_x64.exe\"; Start-Process \"$env:TEMP\vcredist_2013_x64.exe\" -ArgumentList '/install','/quiet','/norestart' -Verb RunAs -Wait; Write-Host 'Done.'"
-
-winget install --id Microsoft.VCRedist.2013.x86 -e --accept-source-agreements --accept-package-agreements
+powershell -NoProfile -Command "Get-PnpDevice -PresentOnly | ? {$_.Status -ne 'OK'} | Select Status,Class,FriendlyName,InstanceId | Format-Table -Auto"
