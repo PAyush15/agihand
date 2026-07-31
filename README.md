@@ -8,6 +8,7 @@ Start-Process "$env:TEMP\vc_redist.x64.exe" -ArgumentList "/install","/quiet","/
 <img width="346" height="140" alt="image" src="https://github.com/user-attachments/assets/e1769c7c-44a4-41fc-80bb-15e7a4c1842f" />
 
 Try/check:
+
 # --- .NET Framework 4.8 check ---
 $net = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" -ErrorAction SilentlyContinue
 if ($net -and $net.Release -ge 528040) {
