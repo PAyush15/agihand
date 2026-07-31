@@ -42,4 +42,7 @@ operable program or batch file.
 
 
 
-winget install --id Microsoft.VCRedist.2015+.x64 -e --accept-source-agreements --accept-package-agreements
+C:\Users\BUH local-admin>winget install --id Microsoft.VCRedist.2015+.x64 -e --accept-source-agreements --accept-package-agreements
+Found an existing package already installed. Trying to upgrade the installed package...
+No available upgrade found.
+No newer package versions are available from the configured sources.
